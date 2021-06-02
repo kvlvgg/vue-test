@@ -10,6 +10,7 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "v-mask": "^2.2.4",
     "vue": "^2.5.2"
   },
   "devDependencies": {
