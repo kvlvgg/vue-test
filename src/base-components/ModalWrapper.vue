@@ -6,12 +6,9 @@
 </template>
 
 <script>
-import makeDraggable from './behaviour/makeDraggable.js';
-
 export default {
   mounted() {
     this.placeSelfCenter();
-    makeDraggable(this.$el);
     this.addDocumentEvents();
 
     this.$slots.default.forEach(child => {
