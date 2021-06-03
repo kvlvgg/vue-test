@@ -47,6 +47,8 @@ export default {
 
   methods: {
     submit() {
+      if (!confirm('Добавить в таблицу нового пользователя?')) return;
+
       this.$emit('change', {
         username: this.form.username,
         phone: this.form.phone,
