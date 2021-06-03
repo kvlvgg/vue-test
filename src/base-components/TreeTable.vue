@@ -5,7 +5,6 @@
         <th
           v-for="col in columns"
           :key="col.field"
-          :style="col.thStyle"
           @click="onHeaderClick(col.field)"
         >
           {{ col.header }}
@@ -92,6 +91,7 @@ export default {
 <style>
 .treetable {
   width: 100%;
+  table-layout: fixed;
   border-spacing: 0;
   border-collapse: collapse;
 }

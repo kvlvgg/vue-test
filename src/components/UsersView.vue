@@ -36,8 +36,7 @@ export default {
         {
           field: 'phone',
           header: 'Телефон',
-          sortable: true,
-          thStyle: 'width: 200px;'
+          sortable: true
         }
       ],
       sortField: 'username',
