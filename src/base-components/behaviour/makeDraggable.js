@@ -1,7 +1,3 @@
-function setDocumentBodyUserSelectStyle(value) {
-  document.body.style.userSelect = value;
-}
-
 export default function(el) {
   el.addEventListener('mousedown', e => {
     const shiftX = e.pageX - parseFloat(getComputedStyle(el).left);
