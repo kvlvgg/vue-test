@@ -36,6 +36,18 @@ export default {
       this.$destroy();
     },
 
+    addDocumentEvents() {
+      setTimeout(() => {
+        document.addEventListener('keydown', this.onEscape);
+        document.addEventListener('click', this.onClickOutSide);
+      });
+    },
+
+    removeDocumentEvents() {
+      document.removeEventListener('keydown', this.onEscape);
+      document.removeEventListener('click', this.onClickOutSide);
+    },
+
     onEscape(e) {
       if (e.code !== 'Escape') return;
       this.close();
@@ -63,18 +75,6 @@ export default {
     getHalfWidth() {
       const cs = getComputedStyle(this.$el);
       return `${cs.width}/2`;
-    },
-
-    addDocumentEvents() {
-      setTimeout(() => {
-        document.addEventListener('keydown', this.onEscape);
-        document.addEventListener('click', this.onClickOutSide);
-      });
-    },
-
-    removeDocumentEvents() {
-      document.removeEventListener('keydown', this.onEscape);
-      document.removeEventListener('click', this.onClickOutSide);
     }
   }
 };
