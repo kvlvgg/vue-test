@@ -1,9 +1,16 @@
+function setDocumentBodyUserSelectStyle(value) {
+  document.body.style.userSelect = value;
+}
+
 export default function(el) {
   el.addEventListener('mousedown', e => {
     const shiftX = e.pageX - parseFloat(getComputedStyle(el).left);
     const shiftY = e.pageY - parseFloat(getComputedStyle(el).top);
+    const draggableAreaHeight = 20;
 
-    if (shiftY > 20) return;
+    if (shiftY > draggableAreaHeight) return;
+
+    document.body.style.userSelect = 'none';
 
     const onMouseMove = e => {
       const width = parseFloat(getComputedStyle(el).width);
@@ -12,7 +19,7 @@ export default function(el) {
       const vw = window.innerWidth;
       const vh = window.innerHeight;
 
-      let padding = 8;
+      const padding = 8;
       let left = e.pageX - shiftX;
       let top = e.pageY - shiftY;
 
@@ -29,6 +36,7 @@ export default function(el) {
     document.addEventListener('mousemove', onMouseMove);
 
     document.addEventListener('mouseup', () => {
+      document.body.style.userSelect = 'auto';
       document.removeEventListener('mousemove', onMouseMove);
     });
   });
